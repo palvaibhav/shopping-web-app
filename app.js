@@ -10,7 +10,7 @@ const errorController = require("./controllers/error");
 const User = require("./models/user");
 
 const MONGODB_URI =
-  "mongodb+srv://vaibhavpal:cUS4QkkhI7IWD1Xk@cluster0-g3jbn.mongodb.net/shop?retryWrites=true&w=majority";
+  "mongodb+srv://vaibhavpal:nWb2gCxYN46PXHYG@cluster0-g3jbn.mongodb.net/shop?retryWrites=true&w=majority";
 
 const app = express();
 const store = new MongoDBStore({
@@ -57,18 +57,6 @@ app.use(errorController.get404);
 mongoose
   .connect(MONGODB_URI)
   .then(result => {
-    User.findOne().then(user => {
-      if (!user) {
-        const user = new User({
-          name: "Vaibhav",
-          email: "vaibhav171997@gmail.com",
-          cart: {
-            items: []
-          }
-        });
-        user.save();
-      }
-    });
     app.listen(3000);
   })
   .catch(err => {
