@@ -9,8 +9,7 @@ const User = require("../models/user");
 const transporter = nodemailer.createTransport(
   sendgridTransport({
     auth: {
-      api_key:
-        "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"
+      api_key: ""
     }
   })
 );
@@ -100,7 +99,7 @@ exports.postSignup = (req, res, next) => {
           res.redirect("/login");
           return transporter.sendMail({
             to: email,
-            from: "shop@shoppin.com",
+            from: "shop@shopping.com",
             subject: "Signup succeeded!",
             html: "<h1>You successfully signed up!</h1>"
           });
