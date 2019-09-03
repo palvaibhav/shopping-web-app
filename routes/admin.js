@@ -40,7 +40,6 @@ router.post(
       .trim()
       .isString()
       .isLength({ min: 3 }),
-    body("imageUrl").isURL(),
     body("price").isFloat(),
     body("description")
       .trim()
