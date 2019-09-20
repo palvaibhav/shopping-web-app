@@ -1,10 +1,8 @@
-const env = require('../env');
-
 const fs = require('fs');
 const path = require('path');
 
 const PDFDocument = require('pdfkit');
-const stripe = require('stripe')(env.STRIPE_KEY_SK);
+const stripe = require('stripe')(process.env.STRIPE_KEY);
 
 const Product = require('../models/product');
 const Order = require('../models/order');
@@ -153,7 +151,7 @@ exports.getCheckout = (req, res, next) => {
         pageTitle: 'Checkout',
         products: products,
         totalSum: total,
-        stripeKey: env.STRIPE_KEY_PK
+        stripeKey: process.env.STRIPE_KEY_PK
       });
     })
     .catch(err => {
