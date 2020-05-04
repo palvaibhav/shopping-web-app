@@ -117,6 +117,8 @@ app.use((error, req, res, next) => {
   });
 });
 
+console.log(MONGODB_URI);
+
 mongoose
   .connect(MONGODB_URI)
   .then(result => {
